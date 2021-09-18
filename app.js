@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var dbRouter = require('./routes/db');
+var dataRouter = require('./routes/get-data');
 var deleteRouter = require('./routes/delete');
 var downloadRouter = require('./routes/download');
 var uploadRouter = require('./routes/upload');
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', dbRouter);
+app.use('/', dataRouter);
 app.use('/', deleteRouter);
 app.use('/', downloadRouter);
 app.use('/', uploadRouter);

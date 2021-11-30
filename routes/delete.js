@@ -4,7 +4,7 @@ var fs = require('fs');
 var client = require('./db');
 
 
-// download file from database
+// delete file from database
 router.delete('/delete', (req, res, next) => {
     fs.unlink(req.query.filepath, () => {
         var sql = `DELETE FROM files WHERE filepath='${req.query.filepath}'`;
